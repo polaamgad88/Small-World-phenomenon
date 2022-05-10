@@ -41,21 +41,7 @@ namespace Small_World_Phenomenon
         public static Dictionary<string, List<string>> Movies = new Dictionary<string, List<string>>();
         public static void graph ()
         {
-            //for (int i = 0; i < all_actors.Count(); i++)
-            //{
-            //    adj.Add(new Dictionary<string, string>()); //adding a map in each index in the adjacency list
-                
-            //}
-            foreach (movie movie in all_movies )
-            {
-                
-
-
-
-
-            }
-
-
+          
 
         }
 
