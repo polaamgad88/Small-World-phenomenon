@@ -33,6 +33,7 @@ namespace Small_World_Phenomenon
 
 
 
+
         public static List<movie> all_movies = new List<movie>(); 
         public static HashSet<string> all_actors = new HashSet<string>();
         public static Dictionary<string,List<string>> adj = new Dictionary<string, List<string>>();
@@ -41,11 +42,31 @@ namespace Small_World_Phenomenon
         public static Dictionary<string, List<string>> Movies = new Dictionary<string, List<string>>();
         public static void graph ()
         {
-          
+            //for (int i = 0; i < all_actors.Count(); i++)
+            //{
+            //    adj.Add(new Dictionary<string, string>()); //adding a map in each index in the adjacency list
+
+            //}
+            foreach (string actor in all_actors)
+            {
+                List<string> movies = Movies[actor];
+                HashSet<string> actors = new HashSet<string>();
+                foreach (string movie in movies)
+                {
+                    List<string> acs = Actors[movie];
+                    foreach (string ac in acs)
+                        if (ac != actor)
+                            actors.Add(ac);
+                }
+                adj[actor] = actors.ToList();
+                actors = new HashSet<string>();
+            }
+
+
 
         }
 
-
+       
 
         static void Main(string[] args)
         {
@@ -86,41 +107,6 @@ namespace Small_World_Phenomenon
 
             }
 
-
-            //for (int i = 0; i < adj.Count(); i++)
-            //{
-
-            //   foreach (var item in adj[i])
-            //        Console.Write(item);
-            //    Console.WriteLine();
-
-            //}
-
-            foreach (string actor in all_actors)
-            {
-                List<string> movies = Movies[actor];
-                HashSet<string> actors = new HashSet<string>();
-                foreach (string movie in movies)
-                {
-                    List<string> acs = Actors[movie];
-                    foreach (string ac in acs)
-                        if (ac != actor)
-                            actors.Add(ac);
-                }
-                adj[actor] = actors.ToList();
-                actors = new HashSet<string>();
-            }
-  foreach(var b in all_actors)
-            {
-                Console.Write(b);
-                Console.Write(">>>");
-
-                foreach (var c in adj[b])
-                    
-
-                    Console.Write(c);
-                Console.WriteLine();
-            }
 
         }
 
