@@ -1,1 +1,1 @@
-# Small-wrold-phenomenon
+# Small-world-phenomenon
